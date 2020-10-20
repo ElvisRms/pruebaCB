@@ -3,10 +3,12 @@ pipeline {
   stages {
     stage('Buzz Build') {
       steps {
-        sh './jenkins/build.sh'
-        archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+        sh 'echo "I am a ${BUZZ_NAME}"'
       }
     }
 
+  }
+  environment {
+    BUZZ_NAME = 'Worker Bee'
   }
 }
